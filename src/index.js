@@ -8,6 +8,10 @@ const CharacterAPI = require("./datasources/characters");
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+  formatError: error => {
+    console.log(error);
+    return error;
+  },
 
   dataSources: () => ({
     launchAPI: new LaunchAPI(),
