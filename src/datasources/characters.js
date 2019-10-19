@@ -13,10 +13,19 @@ class CharacterAPI extends RESTDataSource {
       : [];
   }
 
-  characterReducer({ id, name, origin }) {
+  async getCharacter({ id }) {
+    const response = await this.get(`character/${id}`);
+    return response ? this.characterReducer(response) : null;
+  }
+
+  characterReducer({ id, name, status, species, type, gender, origin }) {
     return {
       id,
       name,
+      status,
+      species,
+      type,
+      gender,
       origin: {
         name: origin.name,
         url: origin.url

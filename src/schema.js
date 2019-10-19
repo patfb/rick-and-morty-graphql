@@ -6,10 +6,15 @@ const typeDefs = gql`
     launches: [Launch]!
     launch(id: ID!): Launch
     characters: [Character]
+    character(id: ID!): Character
   }
   type Character {
-    id: ID
+    id: ID!
     name: String
+    status: String
+    species: String
+    type: String
+    gender: String
     origin: Origin
   }
   type Origin {

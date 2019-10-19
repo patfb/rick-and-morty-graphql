@@ -5,6 +5,8 @@ module.exports = {
     launch: (_, { id }, { dataSources }) =>
       dataSources.launchAPI.getLaunchById({ launchId: id }),
     characters: (_, __, { dataSources }) =>
-      dataSources.characterAPI.getAllCharacters()
+      dataSources.characterAPI.getAllCharacters(),
+    character: (_, { id }, { dataSources }) =>
+      dataSources.characterAPI.getCharacter({ id })
   }
 };
