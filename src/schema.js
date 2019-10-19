@@ -5,7 +5,8 @@ const typeDefs = gql`
   type Query {
     launches: [Launch]!
     launch(id: ID!): Launch
-    characters: [Character]
+    allCharacters: [Character]
+    characters(ids: [ID]): [Character]
     character(id: ID!): Character
   }
   type Character {
