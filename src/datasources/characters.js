@@ -8,6 +8,10 @@ class CharacterAPI extends RESTDataSource {
   async getAllCharacters() {
     const response = await this.get("character");
 
+    if (response.results) {
+      console.log("true");
+    }
+
     return response.results
       ? response.results.map(character => this.characterReducer(character))
       : [];
